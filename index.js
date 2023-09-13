@@ -50,6 +50,30 @@ xhr1.send(null);
         }
         xhr.send(json);
 
+// Update 
+var url = 'https://fakestoreapi.com/products';
+
+var json2 = JSON.stringify({
+    title: 'test product',
+    price: 13.5,
+    description: 'lorem ipsum set',
+    image: 'https://i.pravatar.cc',
+    category: 'electronic'
+});
+
+var xhr2 = new XMLHttpRequest();
+xhr2.open("PUT", url + '/7', true);
+xhr2.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+xhr2.onload = function () {
+    var product = JSON.parse(xhr2.responseText);
+    // if (xhr2.readyState == 4 && xhr2.status == "200") {
+    //     console.table(product);
+    // } else {
+    //     console.error(product);
+    // }
+    console.log(product)
+}
+xhr2.send(json2);
 
 
 // Data Structures, Modern Operators and Strings
